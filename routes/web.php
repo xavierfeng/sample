@@ -37,3 +37,6 @@ Route::resource('users', 'UsersController');//定义用户资源路由
 Route::get('login', 'SessionsController@create')->name('login');
 Route::post('login', 'SessionsController@store')->name('login');
 Route::delete('logout', 'SessionsController@destroy')->name('logout');
+
+//注册后 激活链接地址
+Route::get('signup/confirm/{token}', 'UsersController@confirmEmail')->name('confirm_email');

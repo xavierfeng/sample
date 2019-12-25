@@ -15,12 +15,12 @@ class UsersTableSeeder extends Seeder
         $users = factory(User::class)->times(50)->make();
         User::insert($users->makeVisible(['password', 'remember_token'])->toArray());
 
-        //用于重置第一个用户
         $user = User::find(1);
         $user->name = 'Aufree';
         $user->email = 'aufree@yousails.com';
         $user->password = bcrypt('password');
         $user->is_admin = true;
+        $user->activated = true;
         $user->save();
     }
 }
