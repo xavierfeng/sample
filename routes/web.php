@@ -21,6 +21,7 @@ Route::get('/about', 'StaticPagesController@about')->name('about');
 
 Route::get('signup', 'UsersController@create')->name('signup');//注册
 
+//用户
 Route::resource('users', 'UsersController');//定义用户资源路由
 //上面代码将等同于
 // Route::get('/users', 'UsersController@index')->name('users.index');
@@ -30,3 +31,9 @@ Route::resource('users', 'UsersController');//定义用户资源路由
 // Route::get('/users/{user}/edit', 'UsersController@edit')->name('users.edit');
 // Route::patch('/users/{user}', 'UsersController@update')->name('users.update');
 // Route::delete('/users/{user}', 'UsersController@destroy')->name('users.destroy');
+
+
+//会话   登陆/注销
+Route::get('login', 'SessionsController@create')->name('login');
+Route::post('login', 'SessionsController@store')->name('login');
+Route::delete('logout', 'SessionsController@destroy')->name('logout');
