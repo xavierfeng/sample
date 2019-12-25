@@ -41,6 +41,9 @@ $app->singleton(
     App\Exceptions\Handler::class
 );
 
+//加载helpers.php
+require __DIR__.'/helpers.php';
+
 /*
 |--------------------------------------------------------------------------
 | Return The Application
